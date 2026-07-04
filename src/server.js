@@ -87,15 +87,13 @@ app.use("/api/*", (req, res) => {
 });
 
 const port = process.env.PORT || 3001;
-
-app.listen(port, () => {
-  connectDb()
-    .then(() => {
+ connectDb().then(() => {
       console.log("Database connected successfully!");
     })
     .catch((error) => {
       console.error(`Database connection error: ${error.message}`);
     });
-    
+app.listen(port, () => {
+ 
   console.log(`Server running on http://localhost:${port}`);
 });
