@@ -29,14 +29,13 @@ const router = express.Router();
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
-  origin: 'https://online-tutor-frontend-alpha.vercel.app',  
-  credentials: true                
+  origin: process.env.ORIGIN,
+  credentials: true
 }));
 
 
 app.use("/api/auth/verify", verifyAuth);
 
-// Example of a protected route
 router.get("/user/profile", authMiddleware, (req, res) => {
   res.status(200).json({
     name: "User Name",
@@ -87,7 +86,7 @@ app.use("/api/*", (req, res) => {
   });
 });
 
-const port = process.env.PORT || 5001;
+const port = process.env.PORT || 3001;
 
 app.listen(port, () => {
   connectDb()
