@@ -29,7 +29,7 @@ const router = express.Router();
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors({
-  origin: 'https://online-tutor-frontend-alpha.vercel.app/',  
+  origin: 'https://online-tutor-frontend-alpha.vercel.app',  
   credentials: true                
 }));
 
