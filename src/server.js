@@ -19,6 +19,8 @@ import verifyAuth from "./routes/verify.routes.js"
 import totalScore from "./routes/totalScore/totalScore.routes.js"
 import update from "./routes/updateUser.routes.js"
 import updateName from "./routes/updateProfile.routes.js"
+import logout from "./routes/logoutRoute.js";
+
 
 dotenv.config();
 
@@ -77,6 +79,7 @@ app.use("/api/updateScince",updateScoreScience);
 app.use("/api/updateEng",updateScoreEng);
 app.use("/api/users/change-password",update);
 app.use("/api/users/update-profile",updateName);
+app.post("/api/logout", logout);
 
 
 // 404 handler
