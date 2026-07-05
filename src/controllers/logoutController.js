@@ -1,4 +1,4 @@
-const logout = (req, res) => {
+const userLogout = (req, res) => {
   res.clearCookie("token", {
     httpOnly: true,
     secure: true,
@@ -7,4 +7,4 @@ const logout = (req, res) => {
   res.status(200).json({ message: "Logged out successfully" });
 };
 
-export default logout;
+export default userLogout;

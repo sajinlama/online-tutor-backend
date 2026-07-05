@@ -19,7 +19,7 @@ import verifyAuth from "./routes/verify.routes.js"
 import totalScore from "./routes/totalScore/totalScore.routes.js"
 import update from "./routes/updateUser.routes.js"
 import updateName from "./routes/updateProfile.routes.js"
-import logout from "./routes/logoutRoute.js";
+import logout from "./routes/logoutRoute.js"
 
 
 dotenv.config();
