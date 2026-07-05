@@ -49,16 +49,17 @@ const userLogin = async (req, res) => {
     }
     
     // Generate JWT token
-    const token = jwt.sign(
-      { userId: user._id, email: user.email },
-      process.env.JWT_SECRET,
-      { expiresIn: "7d" }
-    );
+   // in userLogin.js
+const token = jwt.sign(
+  { id: user._id, email: user.email },   // change userId -> id
+  process.env.JWT_SECRET,
+  { expiresIn: "7d" }
+);
     
     res.cookie("token", token, {
       httpOnly: true,
-      secure: false,
-      sameSite: "lax",
+      secure: true,
+      sameSite: "none",
       maxAge: 7 * 24 * 60 * 60 * 1000,
     });
     

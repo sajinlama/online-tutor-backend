@@ -22,7 +22,7 @@ const verifyAuth = (req, res) => {
     return res.status(200).json({
       authenticated: true,
       user: {
-        userId: decoded.userId,
+        userId: decoded.id,
         email: decoded.email
       }
     });
