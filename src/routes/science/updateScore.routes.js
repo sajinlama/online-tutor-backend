@@ -1,5 +1,5 @@
 import express from "express"
-import checkAnsScience from "../../controllers/Science/scienceCheck.contorller.js"
+import checkAnsScience from "../../controllers/Science/science.controller.js";
 const router =express.Router();
 
 

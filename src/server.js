@@ -3,23 +3,23 @@ import cors from "cors";
 import connectDb from "./db/connect.db.js";
 import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
-import userlogin from "./routes/userlogin.routes.js";
-import userRegister from "./routes/userRegister.routes.js";
-import mathQuestion from "./routes/mathqestion.route.js";
-import englishQuestion from "./routes/english.routes.js";
-import scienceQuestion from "./routes/science.routes.js";
-import getmathQuestion from "./routes/getmaths.route.js";
-import updateScore from "./routes/updateScore.routes.js";
-import updateScoreEng from "./routes/eglish/updateScore.routes.js";
+import userlogin from "./routes/users/userlogin.routes.js";
+import userRegister from "./routes/users/userRegister.routes.js";
+import mathQuestion from "./routes/maths/mathqestion.route.js";
+import englishQuestion from "./routes/english/getEnglish.routes.js";
+import scienceQuestion from "./routes/science/science.routes.js";
+import getmathQuestion from "./routes/maths/getmaths.route.js";
+import updateScore from "./routes/maths/updateScore.routes.js";
+import updateScoreEng from "./routes/english/updateScore.routes.js";
 import updateScoreScience from "./routes/science/updateScore.routes.js";
-import getquestionScience from "./routes/getScinece.routes.js";
-import getquestionEnglish from "./routes/getEnglish.routes.js";
+import getquestionScience from "./routes/science/getScinece.routes.js";
+import getquestionEnglish from "./routes/english/getEnglish.routes.js";
 import authMiddleware from "./middlewares/user.auth.js";
-import verifyAuth from "./routes/verify.routes.js"
+import verifyAuth from "./routes/auth/verify.routes.js"
 import totalScore from "./routes/totalScore/totalScore.routes.js"
-import update from "./routes/updateUser.routes.js"
-import updateName from "./routes/updateProfile.routes.js"
-import logout from "./routes/logoutRoute.js"
+import update from "./routes/users/updateUser.routes.js"
+import updateName from "./routes/users/updateProfile.routes.js"
+import logout from "./routes/auth/logoutRoute.js"
 
 
 dotenv.config();
@@ -89,7 +89,7 @@ app.use("/api/*", (req, res) => {
   });
 });
 
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 3002;
  connectDb().then(() => {
       console.log("Database connected successfully!");
     })
