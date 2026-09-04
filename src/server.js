@@ -19,6 +19,11 @@ app.use(
   })
 );
 
+app.get("/", (req, res) => {
+    res.json({
+        message: "Online Tutor Backend is running"
+    });
+});
 // All API routes
 app.use("/api/v1", router);
 
