@@ -27,7 +27,7 @@ const userLogin = async (req, res) => {
     }
     
     const { email, password } = req.body;
-    console.log(email, password);
+  
     
     // Check if user exists
     const user = await User.findOne({ email });
@@ -40,7 +40,7 @@ const userLogin = async (req, res) => {
     
     // Compare passwords
     const isPasswordValid = await bcrypt.compare(password, user.password);
-    console.log(user.password);
+  
     if (!isPasswordValid) {
       console.log("password not found");
       return res.status(401).json({

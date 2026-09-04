@@ -132,7 +132,7 @@ export const updateMathsScore = async ({
   level,
 }) => {
   let userScore = await MathsScore.findOne({ userId });
-  console.log("this is math userScore",userScore)
+  
 
   const aiFeedbackPayload = {
     ...feedbackData,
@@ -210,6 +210,5 @@ export const updateUserProgress = async (userId, correctAnswers) => {
   };
 
   await userProgress.save();
-  console.log("this is user", userProgress)
   return userProgress;
 };
