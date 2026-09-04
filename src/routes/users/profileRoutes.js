@@ -3,7 +3,7 @@ import express from "express"
 
 const router = express.Router();
 
-router.put("/", updateProfile);
-router.post("/", changePassword);
+router.put("/update-profile", updateProfile);
+router.put("/update-password", changePassword);
 
 export default router;

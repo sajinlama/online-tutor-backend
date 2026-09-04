@@ -1,6 +1,6 @@
 import { Router } from "express";
-import getMathsQuestion from "../../controllers/maths/getmathsQuestions.controller";
-import checkAnsMaths from "../../controllers/maths/maths.controller";
+import getMathsQuestion from "../../controllers/maths/getmathsQuestions.controller.js";
+import checkAnsMaths from "../../controllers/maths/maths.controller.js";
 
 const router = Router();
 
