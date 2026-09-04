@@ -1,6 +1,6 @@
 const userLogout = (req, res) => {
 
-  console.log("hello sajin ");
+
   res.clearCookie("token", {
     httpOnly: true,
     secure: true,

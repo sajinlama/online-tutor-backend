@@ -34,6 +34,6 @@ const scienceScoreSchema = new mongoose.Schema({
   },
 });
 
-const EnglishScore = mongoose.model("scienceScore", scienceScoreSchema);
+const ScienceScore = mongoose.model("scienceScore", scienceScoreSchema);
 
-export default EnglishScore;
+export default ScienceScore;

@@ -1,13 +1,11 @@
 import { 
-   getAIFeedbackFromMicroservice,
+  getAIFeedbackFromMicroservice,
   getQuestionMap,
   gradeAnswers,
   buildProgressArray,
   updateScienceScore,
   updateUserProgress,
 } from "../../service/science.service.js";
-
-
 
 const checkAnsScience = async (req, res) => {
   try {
@@ -55,9 +53,10 @@ const checkAnsScience = async (req, res) => {
       level,
     });
 
-    // 7. Update UserProgress Document (non-blocking on failure)
+    // 7. Update cross-subject UserProgress — non-blocking, so a failure
+    // here shouldn't fail the whole request
     try {
-      await ç(userId, correctAnswers);
+      await updateUserProgress(userId, correctAnswers);
     } catch (progressError) {
       console.error("Error updating UserProgress:", progressError.message);
     }

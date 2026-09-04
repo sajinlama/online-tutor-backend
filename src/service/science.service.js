@@ -1,16 +1,11 @@
 import axios from "axios";
 import Science from "../models/science/science.models.js";
 import UserProgress from "../models/users/userProgress.models.js";
-import ScienceScore from "../models/science/scienceScore.models.js"
+import ScienceScore from "../models/science/scienceScore.models.js";
 
-// Read AI service URL from environment, defaulting to localhost in development
+
 const AI_SERVICE_URL = process.env.AI_SERVICE_URL || "http://localhost:8000";
 
-/**
- * Sends progress data to the Python FastAPI microservice to generate
- * AI feedback. Has a built-in timeout and graceful fallback so quiz
- * processing never breaks even if the AI service is down.
- */
 export const getAIFeedbackFromMicroservice = async (progressArray, subject) => {
   try {
     const response = await axios.post(
@@ -131,7 +126,9 @@ export const updateScienceScore = async ({
   incorrectChapters,
   level,
 }) => {
+  console.log("userId received:", userId, typeof userId);
   let userScore = await ScienceScore.findOne({ userId });
+  console.log(userScore,"userScore of science")
 
   const aiFeedbackPayload = {
     ...feedbackData,
@@ -145,7 +142,9 @@ export const updateScienceScore = async ({
       totalScore: correctAnswers,
       progress: progressArray,
       aiFeedback: aiFeedbackPayload,
-    });
+    })
+    console.log("hi from usercore if statement")
+    ;
   } else {
     userScore.totalScore = correctAnswers;
 
@@ -209,5 +208,6 @@ export const updateUserProgress = async (userId, correctAnswers) => {
   };
 
   await userProgress.save();
+  console.log(userProgress,"this is userprojegress")
   return userProgress;
 };
